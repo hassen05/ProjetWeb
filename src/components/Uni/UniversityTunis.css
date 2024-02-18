@@ -1,0 +1,62 @@
+.university-details {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .search-controls {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .search-controls input[type='text'] {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .search-by {
+    margin-left: 10px;
+  }
+  
+  .faculty-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .faculty-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .faculty-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+  .toggle-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .toggle-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .degrees-list {
+    list-style: none;
+    padding-left: 20px;
+  }
+  
+  .degree-item {
+    margin-bottom: 5px;
+  }
+  

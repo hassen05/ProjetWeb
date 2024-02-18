@@ -1,33 +1,25 @@
-import React from "react";
-import Back from "../common/back/Back";
-
-import "./price.css";
-
-import universitiesData from "./uni.json"; // Import the university data
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Back from '../common/back/Back';
+import universitiesData from './uni.json';
+import './price.css';
 
 const Pricing = () => {
   return (
     <>
-      <Back title='Choose The Right Plan' />
-      <section className='price paddng'>
-        <h2>Universities and Degrees</h2>
-        {Object.values(universitiesData).map((university, index) => (
-          <div key={index}>
-            <h3>{university.university_name}</h3>
-            <ul>
-              {Object.values(university.Faculties).map((faculty, index) => (
-                <li key={index}>
-                  <h4>{faculty.faculty_name}</h4>
-                  <ul>
-                    {faculty.degrees.map((degree, index) => (
-                      <li key={index}>{degree}</li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <Back title="Choose The Right Plan" />
+      <section className="price padding">
+        <h2>Universities</h2>
+        <ul className="university-list">
+          {Object.values(universitiesData).map((university, index) => (
+            <li key={index}>
+              <Link to={university.link} className="university-item">
+                <img src={process.env.PUBLIC_URL + university.image} alt={university.university_name} className="university-image" />
+                <span className="university-name">{university.university_name}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
