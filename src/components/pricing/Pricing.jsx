@@ -7,7 +7,7 @@ import './price.css';
 const Pricing = () => {
   return (
     <>
-      <Back title="Choose The Right Plan" />
+      <Back title="Choose The Right Path" />
       <section className="price padding">
         <h2>Universities</h2>
         <ul className="university-list">
