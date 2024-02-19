@@ -1,34 +1,124 @@
-.blog img {
-  width: 100%;
-  height: 100%;
+/* CSS for the login container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 450px;
 }
-.blog .text {
-  padding: 40px 30px;
+
+/* CSS for the login form */
+.login {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 400px; /* Adjust width as needed */
+  
 }
-.blog h1 {
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 30px;
-  margin: 20px 0;
-  transition: 0.5s;
+
+.login-title {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
-.blog h1:hover {
-  color: #1eb2a6;
+
+.notice {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-login label {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.input-email,
+.input-password {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.input-email i,
+.input-password i {
+  margin-right: 10px;
+}
+
+.input-email input,
+.input-password input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkbox input {
+  margin-right: 10px;
+}
+
+.checkbox label {
+  color: #333;
+  font-size: 16px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
-.blog span {
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #1eb2a6;
+
+button:hover {
+  background-color: #0056b3;
 }
-.blog span label {
-  margin-left: 10px;
-  color: grey;
-  font-size: 14px;
+
+.forgot-password {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
 }
-.blog span:nth-last-child(1) label {
-  color: #1eb2a6;
+
+.forgot-password:hover {
+  text-decoration: underline;
 }
-.blog p {
-  color: grey;
+
+.created {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+.created a {
+  color: #007bff;
+}
+
+.created a:hover {
+  text-decoration: underline;
 }
