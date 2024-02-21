@@ -12,6 +12,9 @@ import Home from "./components/home/Home"
 import UniversityTunis from "./components/Uni/UniversityTunis"
 import UniversityZitouna from "./components/Uni/UniversityZitouna"
 import UniversityMonastir from "./components/Uni/UniversityMonastir"
+import UniversityCarthage from "./components/Uni/UniversityCarthage"
+import UniversityManar from "./components/Uni/UniversityManar"
+
 
 
 function App() {
@@ -28,6 +31,11 @@ function App() {
           <Route exact path="/UniversityTunis" component={UniversityTunis} />
           <Route exact path="/UniversityZitouna" component={UniversityZitouna} />
           <Route exact path="/UniversityMonastir" component={UniversityMonastir} />
+          <Route exact path="/UniversityCarthage" component={UniversityCarthage} />
+          <Route exact path="/UniversityManar" component={UniversityManar} />
+
+
+
 
           <Route exact path='/journal' component={Blog} />
           <Route exact path='/contact' component={Contact} />

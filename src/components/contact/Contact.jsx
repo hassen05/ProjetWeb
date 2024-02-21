@@ -8,6 +8,12 @@ const Contact = () => {
   return (
     <>
       <Back title="Contact us" />
+      <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+  type="text/javascript" charset="utf-8"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+  type="text/javascript" charset="utf-8"></script>
+
+
       <section className="contacts padding">
         <div className="container shadow flexSB">
           <div className="left row">

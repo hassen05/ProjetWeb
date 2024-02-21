@@ -40,7 +40,7 @@ const UniversityZitouna = () => {
     <>
       <Back title="Choose The Right Plan" />
       <section className="university-details">
-        <h2>{universitiesData[0].university_name}</h2>
+        <h2>{universitiesData[1].university_name}</h2>
         <div className="search-controls">
           <input
             type="text"
