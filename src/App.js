@@ -14,8 +14,14 @@ import UniversityZitouna from "./components/Uni/UniversityZitouna"
 import UniversityMonastir from "./components/Uni/UniversityMonastir"
 import UniversityCarthage from "./components/Uni/UniversityCarthage"
 import UniversityManar from "./components/Uni/UniversityManar"
-
-
+import UniversityGafsa from "./components/Uni/UniversityGafsa"
+import UniversitySousse from "./components/Uni/UniversitySousse"
+import UniversityTechno from "./components/Uni/UniversityTechno"
+import UniversitySfax from "./components/Uni/UniversitySfax"
+import UniversityJendouba from "./components/Uni/UniversityJendouba"
+import UniversityManouba from "./components/Uni/UniversityManouba"
+import UniversityKairouan from "./components/Uni/UniversityKairouan"
+import UniversityGabes from "./components/Uni/UniversityGabes"
 
 function App() {
   return (
@@ -33,10 +39,14 @@ function App() {
           <Route exact path="/UniversityMonastir" component={UniversityMonastir} />
           <Route exact path="/UniversityCarthage" component={UniversityCarthage} />
           <Route exact path="/UniversityManar" component={UniversityManar} />
-
-
-
-
+          <Route exact path="/UniversityGafsa" component={UniversityGafsa} />
+          <Route exact path="/UniversitySousse" component={UniversitySousse} />
+          <Route exact path="/UniversityTechno" component={UniversityTechno} />
+          <Route exact path="/UniversitySfax" component={UniversitySfax} />
+          <Route exact path="/UniversityJendouba" component={UniversityJendouba} />
+          <Route exact path="/UniversityManouba" component={UniversityManouba} />
+          <Route exact path="/UniversityKairouan" component={UniversityKairouan} />
+          <Route exact path="/UniversityGabes" component={UniversityGabes} />
           <Route exact path='/journal' component={Blog} />
           <Route exact path='/contact' component={Contact} />
         </Switch>

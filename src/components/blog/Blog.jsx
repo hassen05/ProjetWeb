@@ -8,6 +8,9 @@ const Blog = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordMatchError, setPasswordMatchError] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [loading, setLoading] = useState(false); // Add loading state variable
+
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -33,57 +36,43 @@ const Blog = () => {
       return;
     }
   
-    // Check if the meta tag exists before accessing its content
-    const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
-    if (!csrfTokenMeta) {
-      console.error("CSRF token meta tag not found!");
-      return;
-    }
+    // Set loading state
+    setLoading(true);
   
-    const csrfToken = csrfTokenMeta.content;
+    try {
+      const response = await fetch('http://127.0.0.1:8080/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+        }),
+      });
   
-    const response = await fetch('http://127.0.0.1:8080/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': csrfToken,
-      },
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-      }),
-    });
-  
-    if (response.ok) {
-      // Registration successful, handle any success actions here
-      console.log("Registration successful!");
-      // You can add code here to redirect the user to another page or perform other actions
-  
-      // Insert user data into the database
-      try {
-        const userData = { username, email }; // Only include necessary data
-        const insertResponse = await fetch('/api/users', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userData),
-        });
-        if (insertResponse.ok) {
-          console.log("User data inserted into the database successfully!");
-        } else {
-          console.error("Failed to insert user data into the database!");
-        }
-      } catch (error) {
-        console.error("Error inserting user data into the database:", error);
+      if (response.ok) {
+        // Registration successful
+        setRegistrationSuccess(true);
+        // Clear form fields
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+      } else {
+        // Registration failed
+        console.error('Registration failed:', response.statusText);
+        // Handle error (e.g., display error message)
       }
-    } else {
-      // Registration failed, handle any error actions here
-      console.error("Registration failed!");
+    } catch (error) {
+      console.error('Error during registration:', error);
+      // Handle error (e.g., display error message)
+    } finally {
+      // Reset loading state
+      setLoading(false);
     }
   };
-  
   
 
   return (
@@ -92,7 +81,6 @@ const Blog = () => {
       
       <section className="blog padding">
         <div className="container grid2">
-          {/* Subscribe form */}
           <div className="form-container subscribe-container">
             <div className="subscribe">
               <h2 className="subscribe-title">Register</h2>
@@ -119,15 +107,14 @@ const Blog = () => {
                   <input type="password" name="password-confirmation" placeholder="Confirm your password" value={confirmPassword} onChange={handleConfirmPasswordChange} required />
                 </div>
                 {passwordMatchError && <p style={{ color: "red" }}>Passwords do not match!</p>}
+                {registrationSuccess && <p style={{ color: "green" }}>Registration successful!</p>}
                 <button type="submit" style={{ backgroundColor: "#28a745" }}>
                   <i className="fas fa-user-plus"></i> Register
                 </button>
               </form>
             </div>
           </div>
-          {/* Divider */}
           <div className="divider"></div>
-          {/* Login form */}
           <div className="form-container login-container">
             <div className="login">
               <h2 className="login-title">Login</h2>
@@ -157,7 +144,6 @@ const Blog = () => {
             </div>
           </div>
         </div>
-        {/* Divider */}
         <div className="horizontal-divider"></div>
       </section>
     </>

@@ -1,32 +1,23 @@
 import React from "react";
 import Back from "../common/back/Back";
+import mapImage from "../../Esprim.png"; // Import your map image file
 import "./contact.css";
 
 const Contact = () => {
-  const mapLink = `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJYzMRGZgrVhIR-pZ9NlrAPVo&key=AIzaSyAfCUAAmT3l0nMFP1oCsYs1g3I0Og3WkRY`;
-
   return (
     <>
       <Back title="Contact us" />
-      <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
-  type="text/javascript" charset="utf-8"></script>
-<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
-  type="text/javascript" charset="utf-8"></script>
-
-
       <section className="contacts padding">
         <div className="container shadow flexSB">
           <div className="left row">
-            <iframe
-              title="map"
-              src={mapLink}
+            {/* Replace the iframe with an img tag */}
+            <img
+              src={mapImage} // Use the imported map image file as the source
+              alt="Map"
               width="600"
               height="450"
               style={{ border: 0 }}
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            />
           </div>
           <div className="right row">
             <h1>Contact us</h1>
