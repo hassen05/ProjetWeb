@@ -1,17 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Back from "../common/back/Back";
 import "./blog.css";
 
 const Blog = () => {
+  // State variables
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordMatchError, setPasswordMatchError] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [loading, setLoading] = useState(false); // Add loading state variable
+  const [loading, setLoading] = useState(false);
+  const [csrfToken, setCsrfToken] = useState(null);
 
+  // Fetch CSRF token when component mounts
+  useEffect(() => {
+    async function fetchCsrfToken() {
+      try {
+        const response = await fetch('http://127.0.0.1:8080/sanctum/csrf-cookie');
+        if (response.ok) {
+          // Get CSRF token from cookie
+          const csrfCookie = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('XSRF-TOKEN='))
+            .split('=')[1];
+          setCsrfToken(csrfCookie);
+        } else {
+          throw new Error('Failed to fetch CSRF token');
+        }
+      } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+      }
+    }
 
+    fetchCsrfToken();
+  }, []);
+
+  // Form input change handlers
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
@@ -29,6 +54,7 @@ const Blog = () => {
     setPasswordMatchError(e.target.value !== password);
   };
 
+  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -44,6 +70,7 @@ const Blog = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': csrfToken, // Include the CSRF token
         },
         body: JSON.stringify({
           username,

@@ -22,6 +22,8 @@ import UniversityJendouba from "./components/Uni/UniversityJendouba"
 import UniversityManouba from "./components/Uni/UniversityManouba"
 import UniversityKairouan from "./components/Uni/UniversityKairouan"
 import UniversityGabes from "./components/Uni/UniversityGabes"
+import profil from "./components/profil/profil"
+
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
           <Route exact path="/UniversityManouba" component={UniversityManouba} />
           <Route exact path="/UniversityKairouan" component={UniversityKairouan} />
           <Route exact path="/UniversityGabes" component={UniversityGabes} />
+          <Route exact path='/profil' component={profil} />
+
           <Route exact path='/journal' component={Blog} />
           <Route exact path='/contact' component={Contact} />
         </Switch>
