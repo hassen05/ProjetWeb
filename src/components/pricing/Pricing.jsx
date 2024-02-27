@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Back from '../common/back/Back';
 import universitiesData from './uni.json';
 import './price.css';
-
 const Pricing = () => {
   return (
     <>
@@ -24,5 +23,4 @@ const Pricing = () => {
     </>
   );
 };
-
 export default Pricing;
